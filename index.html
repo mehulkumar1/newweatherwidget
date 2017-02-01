@@ -1,0 +1,50 @@
+<!doctype html>
+<html ng-app="demo">
+	<head>
+		<title>Weather App</title>
+		
+		<script src="angular.min.js"></script>
+    	<script src="weather.js"></script>
+		<link rel="stylesheet" type="text/css" href="weather.css">
+	</head>
+
+	<body>
+		<div class="weatherwidget" ng-controller="Hello">
+			
+			
+			<p> {{weather.query.results.channel.location.city}} , {{weather.query.results.channel.location.region}}</p> 
+			
+			<p>  {{weather.query.results.channel.item.condition.temp}}°                                                          , {{weather.query.results.channel.item.condition.text}}</p> 
+			
+	
+			prediction
+	<!--		
+    <span ng-repeat="weatherday in weather.query.results.channel.item.forecast">
+        
+{{ weatherday.date}}
+        {{ weatherday.high }}°/{{ weatherday.low}}°
+		
+    </span>
+ -->
+ <table>
+			 
+			  
+			    <tr>
+    <th>day</th>
+    <th>date</th>
+	<th> temp high/low</th>
+  </tr>
+  
+   <tr ng-repeat="weatherday in weather.query.results.channel.item.forecast" > 
+			   <td> {{ weatherday.day}}   </td>
+			  <td> {{ weatherday.date}}   </td>
+			 <td> {{ weatherday.high }}°/{{ weatherday.low}}°</td>
+			  
+			  <tr>
+			      </table>                                                  
+			
+
+			
+		</div>
+	</body>
+</html>
